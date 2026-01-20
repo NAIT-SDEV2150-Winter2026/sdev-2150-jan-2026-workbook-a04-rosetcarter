@@ -37,7 +37,7 @@ class ResourceResults extends HTMLElement {
   _handleResultClick(event) {
     const clickedElement = event.target.closest('button[data-id]');
     if (clickedElement) {
-      this.shadowRoot.querySelector('.button-active')?.classList.remove('active');
+      this.shadowRoot.querySelector('button.active')?.classList.remove('active');
       clickedElement.classList.add('active');
       const selectedId = clickedElement.getAttribute('data-id');
 

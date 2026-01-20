@@ -37,6 +37,10 @@ class ResourceDetails extends HTMLElement {
     this.render();
   }
 
+  get resource() {
+    return this.#resource;
+  }
+
   render() {
     // TODO: Render resource details if available
     const element = template.content.cloneNode(true);
