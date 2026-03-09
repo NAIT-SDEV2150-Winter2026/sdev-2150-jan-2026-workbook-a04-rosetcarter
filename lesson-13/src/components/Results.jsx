@@ -5,14 +5,12 @@ import Card from './ui/Card';
 export default function Results({selectedResource, onSelectResource, searchTerm, selectedCategories, openNowOnly}) {
 
   let filteredResources = resources;
-
-  if (openNowOnly) {
+  if(openNowOnly)
     filteredResources = resources.filter((element) => element.openNow === openNowOnly);
-  }
-
-  if(selectedCategories.length > 0) {
-    filteredResources = filteredResources.filter((element) => selectedCategories.include(element.category));
-  }
+  if(selectedCategories.length > 0)
+    filteredResources = filteredResources.filter((element) => selectedCategories.includes(element.category));
+  if (searchTerm !== '')
+    filteredResources = filteredResources.filter((r) => r.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <Card title="Results">
